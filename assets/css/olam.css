@@ -1,0 +1,20 @@
+@font-face {
+ font-family: font-lemon;
+ src:url('../font/Lemon-Regular.ttf') format('truetype')
+}
+
+.navbar-custom .nav li > a{
+    font-size: 14px;
+}
+.navbar-custom .navbar-brand{
+    font-size: 27px;
+}
+.module, .module-small{
+    padding: 35px 0;
+}
+.module img{
+    width: 100%;
+}
+.client-logo{
+    opacity: 1;
+}
