@@ -18,3 +18,10 @@
 .client-logo{
     opacity: 1;
 }
+#contact{
+    padding: 150px 0px;
+}
+.active-menu{
+    color: white !important;
+    font-weight: bold !important;
+}
