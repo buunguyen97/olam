@@ -29,3 +29,6 @@
 .navbar-brand {
   padding: 9px 15px;
 }
+.alert-success, .alert-danger{
+  display: none;
+}

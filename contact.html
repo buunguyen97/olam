@@ -77,7 +77,7 @@
         emailjs.init("jekPf78lxIE5rQbp1");
       })();
     </script>
-
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!-- Main stylesheet and color file-->
     <link href="assets/css/style.css" rel="stylesheet" />
 
@@ -133,6 +133,12 @@
         <section class="module" id="contact">
           <div class="container">
             <div class="row">
+              <div id="success-message" class="alert alert-success col-sm-6 col-sm-offset-3">
+                <strong>Success!</strong> Your email has been sent successfully!
+              </div>
+              <div id="error-message" class="alert alert-danger col-sm-6 col-sm-offset-3">
+                <strong>Error!</strong> An error has occurred, please try again later.
+              </div>
               <div class="col-sm-6 col-sm-offset-3">
                 <h2 class="module-title font-alt">Contact us</h2>
                 <div class="module-subtitle font-serif"></div>
@@ -177,6 +183,11 @@
                       required="required"
                       data-validation-required-message="Please enter your message."
                     ></textarea>
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <!-- Add the reCAPTCHA element -->
+                  <div class="form-group">
+                    <div class="g-recaptcha" data-sitekey="6LfAmowmAAAAAPlfGTfY31Afp3dfSumgMjkRojVc"></div>
                     <p class="help-block text-danger"></p>
                   </div>
                   <div class="text-center">
@@ -324,10 +335,18 @@
           // Gửi email thông qua EmailJS
           emailjs.send("service_89r8qua", "template_q14fyc9", formData).then(
             function () {
-              alert("Email đã được gửi thành công!");
+              document.getElementById("success-message").style.display = "block";
+                    // Xóa hết các ô input trong form
+              document.getElementById("name").value = "";
+              document.getElementById("email").value = "";
+              document.getElementById("message").value = "";
             },
             function (error) {
-              alert("Có lỗi xảy ra, vui lòng thử lại sau.");
+              document.getElementById("error-message").style.display = "block";
+                    // Xóa hết các ô input trong form
+              document.getElementById("name").value = "";
+              document.getElementById("email").value = "";
+              document.getElementById("message").value = "";
             }
           );
         });
